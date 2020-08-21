@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header/Header';
-// import Week from './main/Week';
+import DateSection from './date-section/DateSection';
+import PopupWindow from './popup-window/PopupWindow';
 
 
 const App = () => {
@@ -8,7 +9,8 @@ const App = () => {
   return (
     <div className='App'>
     <Header />
-      
+    <DateSection />
+    {/* <PopupWindow /> */}
     </div>  
   );
 };
@@ -16,7 +18,7 @@ const App = () => {
 export default App;
 
 
-      {/* <Week /> */}
+
 
 
  

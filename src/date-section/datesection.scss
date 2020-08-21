@@ -1,0 +1,108 @@
+.date-container {
+    display: grid;
+    grid-template-rows: 8rem;
+    grid-auto-rows: 5rem;
+    grid-template-columns: 5.8rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    position: relative;
+    
+    border-bottom: 1px solid #dadce0;
+    // overflow-y: scroll;
+    
+}
+
+
+.day {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dadce0;
+        
+    &-of-week {
+        margin-top: 10%;
+        font-size: 1rem;
+        margin-bottom: .7rem;
+    }
+   
+    &-number {
+        font-size: 2.3rem;
+        font-weight: 500;
+    }
+    
+    &-border {
+        width: 100%;
+        height: 20%;
+        // border-right: 1px solid #dadce0;
+        border-left: 1px solid #dadce0;
+
+    }
+}
+
+.timezone {
+    justify-content: flex-end;
+}
+
+.time-container {
+    // border: 0.4px solid #dadce0;
+    border-bottom: 1px solid #dadce0;
+    border-left: 1px solid #dadce0;
+    display: grid;
+    grid-template-rows: 5rem;
+    grid-auto-rows: 5rem;
+    grid-template-columns: 5.8rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    
+    &-1 {
+        display: flex;
+        // position: relative; 
+    }
+}
+
+.time-1 {
+    left: 10px;
+    width: 80%;
+    top: -10px;
+    display: flex;
+    position: relative;
+    justify-content: center; 
+}
+
+.time-2 {
+    width: 20%;
+    border-bottom: 1px solid #dadce0;
+}
+
+.wrapper-scroll {
+    grid-template-rows: 5rem;
+    //position: relative;
+     overflow-y: scroll;
+     height: 70vh;
+ }
+
+.scroll {
+    overflow-y: scroll;
+}
+
+.wrapper-scroll::-webkit-scrollbar {
+    background: transparent;
+    height: 8px;
+    width: 10px;
+}
+.wrapper-scroll::-webkit-scrollbar-thumb {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #dadce0;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    min-height: 40px;
+}
+
+.scroll::-webkit-scrollbar {
+    background: transparent;
+    height: 8px;
+    width: 10px;
+    //border: 2px solid black
+}
+
+
+
