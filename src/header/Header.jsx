@@ -6,7 +6,7 @@ import moment from "moment";
 
 const Header = () => {
 
-  const dateNow = new Date()
+  const dateNow = new Date();
   const currentDate = moment(dateNow).week('isoWeek');
   const [weekStart, setWeekStart] = useState(currentDate.clone().startOf('isoWeek'));
   const [days, setDays] = useState([]);
@@ -17,13 +17,13 @@ const Header = () => {
         
   const daysMapped = () => {
     return days.map(day => {
-    return (
-      <div className='day'>
-        <span className='day-of-week'>{day.split('-')[3].toLocaleUpperCase()}</span>
-        <span className='day-number'>{day.split('-')[2]}</span>
-        <div className="day-border"></div>
-      </div>
-    )});
+      return (
+        <div className='day'>
+          <span className='day-of-week'>{day.split('-')[3].toLocaleUpperCase()}</span>
+          <span className='day-number'>{day.split('-')[2]}</span>
+          <div className="day-border"></div>
+        </div>
+      )});
   }
     
   const nextWeek = () =>{

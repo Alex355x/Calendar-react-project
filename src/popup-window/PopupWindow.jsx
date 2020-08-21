@@ -8,12 +8,13 @@ const Popup = ({ popup }) => {
       <form className="popup-form">
         <div className="name-events">
           <button className="name-events_btn" onClick={popup}>
-            <i className="fas fa-times-circle"></i>
+            <i className="fas fa-times"></i>
           </button>
           <input
             type="text"
             onChange=""
-            value="Breakfast width friends"
+            value=""
+            placeholder='Add name of event'
             className="name-events_input"
           />
         </div>
@@ -67,7 +68,7 @@ const Popup = ({ popup }) => {
           <span className="description_img">
             <i className="fas fa-bars"></i>
           </span>
-          <div className="description_textarea">
+          <span className="description_textarea">
             <textarea
               name="comment"
               placeholder="Добавьте описание"
@@ -76,7 +77,7 @@ const Popup = ({ popup }) => {
               className="description_textarea__input"
               placeholder="Добавьте описание"
             ></textarea>
-          </div>
+          </span>
         </div>
         <div className="btn-container">
           <button className="btn-container_form" type="submit">

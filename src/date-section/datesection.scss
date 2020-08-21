@@ -32,7 +32,6 @@
     &-border {
         width: 100%;
         height: 20%;
-        // border-right: 1px solid #dadce0;
         border-left: 1px solid #dadce0;
 
     }
@@ -43,17 +42,16 @@
 }
 
 .time-container {
-    // border: 0.4px solid #dadce0;
     border-bottom: 1px solid #dadce0;
     border-left: 1px solid #dadce0;
-    display: grid;
-    grid-template-rows: 5rem;
-    grid-auto-rows: 5rem;
-    grid-template-columns: 5.8rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    //display: grid;
+    //grid-template-rows: 5rem;
+    //grid-auto-rows: 5rem;
+    //grid-template-columns: 5.8rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     
     &-1 {
         display: flex;
-        // position: relative; 
+        
     }
 }
 
