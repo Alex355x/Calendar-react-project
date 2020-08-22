@@ -8,7 +8,8 @@ const Header = () => {
 
   const dateNow = new Date();
   const currentDate = moment(dateNow).week('isoWeek');
-  const [weekStart, setWeekStart] = useState(currentDate.clone().startOf('isoWeek'));
+  const currentDateUse = currentDate.clone().startOf('isoWeek');
+  const [weekStart, setWeekStart] = useState(currentDateUse);
   const [days, setDays] = useState([]);
   
   for (let i = 0; i <= 6; i++) {
@@ -38,6 +39,12 @@ const Header = () => {
     daysMapped();
   }
 
+  const showCurrentWeek = () => {
+    setWeekStart(currentDateUse);
+    setDays([]);
+    daysMapped();
+  };
+
   return (
     <>
     <header className='header'>
@@ -57,7 +64,12 @@ const Header = () => {
           </svg>
         Create
         </button>
-        <button className='header-btn-today'>Today</button>
+        <button 
+        className='header-btn-today'
+        onClick={showCurrentWeek}
+        >
+        Today
+        </button>
       </div>
       <div className='header-nav'>
             <button
