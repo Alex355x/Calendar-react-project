@@ -2,17 +2,22 @@ import React from "react";
 import './Popupwindow.scss';
 
 
-const Popup = ({ popup }) => {
+const Popup = () => {
+
+  // const style = {
+  //   display: flex,
+  // };
+
   return (
-    <section className="popup">
-      <form className="popup-form">
+    <section className="popup" >
+      <form className="popup-form" >
         <div className="name-events">
-          <button className="name-events_btn" onClick={popup}>
+          <button className="name-events_btn" >
             <i className="fas fa-times"></i>
           </button>
           <input
             type="text"
-            onChange=""
+            onChange={onchange}
             value=""
             placeholder='Add name of event'
             className="name-events_input"
@@ -88,4 +93,5 @@ const Popup = ({ popup }) => {
     </section>
   );
 };
+
 export default Popup;

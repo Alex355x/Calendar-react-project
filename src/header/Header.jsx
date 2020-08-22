@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./header.scss";
 import DateSection from "../date-section/DateSection";
 import moment from "moment";
+import PopupWindow from '../popup-window/PopupWindow';
 
 
 const Header = () => {
@@ -45,12 +46,20 @@ const Header = () => {
     daysMapped();
   };
 
+  const showPopUp = () => {
+    
+    
+  }
+
   return (
     <>
     <header className='header'>
       <div className='header-btn'>
-        <button className='header-btn-create'>
-        <svg
+        <button
+        className='header-btn-create'
+        onClick={showPopUp}
+        >
+          <svg
             className="header-btn__img"
             width="36"
             height="36"
@@ -95,6 +104,7 @@ const Header = () => {
       </div>
     </header>
     <DateSection daysMapped={daysMapped()}/>
+    <PopupWindow />
     </>
   )
 }
