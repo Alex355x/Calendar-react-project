@@ -2,11 +2,12 @@ import React from "react";
 import './Popupwindow.scss';
 
 
-const Popup = () => {
+const Popup = ({show}) => {
+  
 
-  // const style = {
-  //   display: flex,
-  // };
+  if (!show) { 
+    return null; 
+  }
 
   return (
     <section className="popup" >

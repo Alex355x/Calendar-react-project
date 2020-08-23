@@ -8,47 +8,49 @@ import PopupWindow from '../popup-window/PopupWindow';
 const Header = () => {
 
   const dateNow = new Date();
-  const currentDate = moment(dateNow).week('isoWeek');
-  const currentDateUse = currentDate.clone().startOf('isoWeek');
-  const [weekStart, setWeekStart] = useState(currentDateUse);
-  const [days, setDays] = useState([]);
+  const currentDate = moment(dateNow).startOf('isoWeek').week('isoWeek');
+  console.log(currentDate);
+  // const currentDateUse = currentDate.clone().startOf('isoWeek');
   
-  for (let i = 0; i <= 6; i++) {
-        days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD-ddd"));
-    }
-        
-  const daysMapped = () => {
-    return days.map(day => {
-      return (
-        <div className='day'>
-          <span className='day-of-week'>{day.split('-')[3].toLocaleUpperCase()}</span>
-          <span className='day-number'>{day.split('-')[2]}</span>
-          <div className="day-border"></div>
-        </div>
-      )});
-  }
+  const [weekStart, setWeekStart] = useState(currentDate);
+  const [days, setWeekDays] = useState([]);
     
+  const nameMonthfirstDayofWeek = moment(weekStart).format('MMM');
+  const nameMonthLastDayofWeek = moment(weekStart).endOf('isoWeek').format('MMM')
+   
+  for (let i = 0; i <= 6; i++) {
+    if (!days.includes(moment(weekStart).add(i, 'days').format("YYYY-MM-DD-ddd"))) {
+      days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD-ddd"));
+    } 
+  }
+  
+  let result = days.map(day => 
+    <div className='day'>
+      <span className='day-of-week'>{day.split('-')[3].toUpperCase()}</span>
+      <span className='day-number'>{day.split('-')[2]}</span>
+      <div className="day-border"></div>
+    </div>
+  );
+  
   const nextWeek = () =>{
     setWeekStart(weekStart.add(7, "days"))
-    setDays([]);
-    daysMapped();
+    setWeekDays([]);
   }
 
   const prevWeek = () =>{
     setWeekStart(weekStart.subtract(7, "days"))
-    setDays([]);
-    daysMapped();
+    setWeekDays([]);
   }
 
   const showCurrentWeek = () => {
-    setWeekStart(currentDateUse);
-    setDays([]);
-    daysMapped();
+    setWeekStart(currentDate);
+    setWeekDays([]);
   };
 
+  const [show, setShowPopUP] = useState(false);
+  
   const showPopUp = () => {
-    
-    
+    setShowPopUP(true);
   }
 
   return (
@@ -96,15 +98,17 @@ const Header = () => {
       </div>
       <div className='header-date-container'>
         <div className='header-date'>
-          Aug
+          {nameMonthfirstDayofWeek === nameMonthLastDayofWeek
+          ? nameMonthfirstDayofWeek
+          : `${nameMonthfirstDayofWeek} - ${nameMonthLastDayofWeek}`}
         </div>
         <div className='header-date'>
-          2020
+          {moment(weekStart).format('YYYY')}
         </div>
       </div>
     </header>
-    <DateSection daysMapped={daysMapped()}/>
-    <PopupWindow />
+    <DateSection result={result} date={days}/>
+    <PopupWindow show={show}/>
     </>
   )
 }
