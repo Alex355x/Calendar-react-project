@@ -1,10 +1,11 @@
 import React from 'react';
 import './datesection.scss';
 import TimeTable from './TimeTable';
-import moment from 'moment';
+//import moment from 'moment';
 
-const DateSection = ({result, date}) => {
-  const week = date;
+const DateSection = ({result, week, tasks}) => {
+  //const week = date;
+  //console.log(week)
   return (
     <>
       <section  className='date-container scroll'>
@@ -13,7 +14,8 @@ const DateSection = ({result, date}) => {
         </div>
         {result}
       </section>
-      <TimeTable week={week}/>
+      <TimeTable week={week} tasks={tasks}/>
+      
     </>
   )
 }

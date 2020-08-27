@@ -1,0 +1,20 @@
+.event {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100px;
+  height: 50px;
+  background-color: rgb(76, 176, 243);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  // position: absolute;
+  top: 0px;
+  font-size: 10px;
+}
+
+.title {
+  margin-bottom: 5px;
+  font-style: italic;
+}

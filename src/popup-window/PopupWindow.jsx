@@ -1,51 +1,70 @@
-import React from "react";
+import React, { Component } from "react";
 import './Popupwindow.scss';
 
 
-const Popup = ({show}) => {
+class Popup extends Component {
+  constructor() {
+    super();
+    this.state = {
+        title: '',
+        description: '',
+        timeStart: '',
+        timeFinish: '',
+        date: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+}
   
-
-  if (!show) { 
-    return null; 
-  }
+handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
+}
+ 
+  
+render() {
+  const { show, onClose, createTask } = this.props;
+  if (!show) { return null };
 
   return (
     <section className="popup" >
-      <form className="popup-form" >
+      <form 
+      onSubmit={(e) => createTask(this.state, e)}
+      className="popup-form" >
         <div className="name-events">
-          <button className="name-events_btn" >
+          <button 
+          onClick={onClose}
+          className="name-events_btn" >
             <i className="fas fa-times"></i>
           </button>
+          
           <input
-            type="text"
-            onChange={onchange}
-            value=""
+            autoComplete="off"
+            value={this.state.value}
+            onChange={this.handleChange}
+            type='text' name='title'
+            required minLength="3" maxLength="18"
             placeholder='Add name of event'
             className="name-events_input"
           />
         </div>
+        
         <div className="date-events">
           <span className="date-events_img">
             <i className="far fa-clock"></i>
           </span>
           <input
             className="date-events_input"
-            name="date"
-            list="dates"
-            value="1 февраля 2020"
+            onChange={this.handleChange}
+            required
+            value={this.state.value}
+            type="date" id="date" name='date'
           />
-          <datalist id="dates" className="date-events_list">
-            <option className="date-events_list__elem" value="1 февраля 2020" />
-            <option className="date-events_list__elem" value="2 февраля 2020" />
-            <option className="date-events_list__elem" value="4 февраля 2020" />
-            <option className="date-events_list__elem" value="5 февраля 2020" />
-            <option className="date-events_list__elem" value="Frattamaggiore" />
-          </datalist>
+          
           <input
             className="date-events_input time-input"
-            name="Time"
-            list="prevTime"
-            value="15: 30"
+            onChange={this.handleChange}
+            required
+            value={this.state.value}
+            type="time" id="timeStart" name='timeStart'
           />
           <datalist id="prevTime" className="date-events_list">
             <option className="date-events_list__elem" value="11 : 30" />
@@ -57,18 +76,11 @@ const Popup = ({show}) => {
           -
           <input
             className="date-events_input time-input"
-            name="Time"
-            list="nextTime"
-            value="16: 30"
+            onChange={this.handleChange}
+            required
+            value={this.state.value}
+            type="time" id="timeFinish" name='timeFinish'
           />
-          <datalist id="nextTime" className="date-events_list">
-            <option className="date-events_list__elem" value="16 : 30" />
-            <option className="date-events_list__elem" value="17 : 30" />
-            <option className="date-events_list__elem" value="18 : 30" />
-            <option className="date-events_list__elem" value="19 : 30" />
-            <option className="date-events_list__elem" value="20 : 30" />
-            <option className="date-events_list__elem" value="Frattamaggiore" />
-          </datalist>
         </div>
         <div className="description">
           <span className="description_img">
@@ -76,23 +88,23 @@ const Popup = ({show}) => {
           </span>
           <span className="description_textarea">
             <textarea
-              name="comment"
-              placeholder="Добавьте описание"
-              required
-              form="text"
-              className="description_textarea__input"
-              placeholder="Добавьте описание"
+              name='description'
+              maxLength="140" rows="5"
+              placeholder="description"
+              onChange={this.handleChange}
+              description={this.state.description}
             ></textarea>
           </span>
         </div>
         <div className="btn-container">
           <button className="btn-container_form" type="submit">
-            Сохранить
+            Save
           </button>
         </div>
       </form>
     </section>
   );
 };
+}
 
 export default Popup;

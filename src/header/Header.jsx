@@ -4,14 +4,47 @@ import DateSection from "../date-section/DateSection";
 import moment from "moment";
 import PopupWindow from '../popup-window/PopupWindow';
 
+const tasks = [
+  {
+    date: "2020-08-24",
+    description: "",
+    timeFinish: "00:45",
+    timeStart: "00:12",
+    title: "Todo1",
+  },
+  {
+    date: "2020-08-24",
+    description: "",
+    timeFinish: "00:55",
+    timeStart: "00:52",
+    title: "jjj",
+  }
+];
+
+
+
+  // id: '2',
+  // title: 'hello2',
+  // description: '112',
+  // timeStart: '10-00',
+  // timeFinish: '13-00',
+  // date: '2020-08-25',
+  // id2: '2020-08-25-Tue-0:00'
+
+// date: "2020-08-26"
+// description: ""
+// timeFinish: "03:00"
+// timeStart: "02:00"
+// title: "пока"
+
+console.log(tasks);
+
 
 const Header = () => {
 
   const dateNow = new Date();
   const currentDate = moment(dateNow).startOf('isoWeek').week('isoWeek');
-  console.log(currentDate);
-  // const currentDateUse = currentDate.clone().startOf('isoWeek');
-  
+    
   const [weekStart, setWeekStart] = useState(currentDate);
   const [days, setWeekDays] = useState([]);
     
@@ -25,7 +58,7 @@ const Header = () => {
   }
   
   let result = days.map(day => 
-    <div className='day'>
+    <div key={day} className='day'>
       <span className='day-of-week'>{day.split('-')[3].toUpperCase()}</span>
       <span className='day-number'>{day.split('-')[2]}</span>
       <div className="day-border"></div>
@@ -52,6 +85,28 @@ const Header = () => {
   const showPopUp = () => {
     setShowPopUP(true);
   }
+  
+  const hideForm = () => {
+    setShowPopUP(false);
+  }
+
+  const createTask = (value, e) => {
+    e.preventDefault();
+    const newTask = {
+        title: value.title,
+        description: value.description,
+        timeStart: value.timeStart,
+        timeFinish: value.timeFinish,
+        date: value.date,
+    }
+    tasks.push(newTask);
+    console.log(tasks);
+    // createTask(newTask)
+    //     .then(() => this.fetchTasks());
+
+    hideForm();
+  }
+  
 
   return (
     <>
@@ -107,8 +162,8 @@ const Header = () => {
         </div>
       </div>
     </header>
-    <DateSection result={result} date={days}/>
-    <PopupWindow show={show}/>
+    <DateSection result={result} week={days} tasks={tasks}/>
+    <PopupWindow show={show} createTask={createTask}/>
     </>
   )
 }
