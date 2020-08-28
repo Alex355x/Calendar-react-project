@@ -3,19 +3,19 @@ import Event from './Event';
 
 
 
+
 const TimeTable = ({week, tasks, onDelete}) => {
   let hours = [];
   for (let i = 0; i <24; i++) {
     hours.push( i < 10?`0${i}:00`:`${i}:00`);
   }
-  // console.log('111 '+tasks)
-  
+   
   const renderTasks = (week, hours) => { 
     return hours.map((el) => {
     const daysOfWeek = week.map(dayOfWeek => {
           const filtredTasks = tasks.filter(task => task.date === (dayOfWeek.slice(0, -4)) && task.timeStart.slice(0, -3) === el.slice(0, -3));
           return (<div className='time-container' value={dayOfWeek}>
-              {filtredTasks && filtredTasks.map(task => <Event title={task.title} timeStart={task.timeStart} timeFinish={task.timeFinish} onDelete={onDelete}/>)}
+              {filtredTasks && filtredTasks.map(task => <Event title={task.title} timeStart={task.timeStart} timeFinish={task.timeFinish} onDelete={onDelete} id={task.id}/>)}
           </div>)
       })
     return (   

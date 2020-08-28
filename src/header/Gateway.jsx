@@ -11,9 +11,7 @@ export const fetchTasksList=()=>{
        return tasksList
    })
 }
-// .map(({ _id, ...task }) => ({
-//   id: _id,
-//   ...task }));
+
 
 
 export const createTaskList = taskData=>{
@@ -31,13 +29,12 @@ export const createTaskList = taskData=>{
 }
 
 
-
-export const deleteTask=id=>{
+export const deleteTask= id => {
   return  fetch(`${baseUrl}/${id}`, {
         method: 'DELETE',
     }).then(response => {
         if (!response.ok) {
-            throw new Error("Internal Server Error. Can't display events");
+            throw new Error("Response Error");
         }
-    })
+    });
 }

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Event.scss';
 
 
 
-const Event = ({timeStart, timeFinish, title, onDelete}) => {
+const Event = ({timeStart, timeFinish, title, onDelete, id}) => {
   let minutes = timeStart.slice(3);
   
   const style1 = {top: '2px'};
@@ -11,16 +11,25 @@ const Event = ({timeStart, timeFinish, title, onDelete}) => {
   const style3 = {top: '20px', marginLeft: '20px', background: 'rgb(76, 186, 283)'};
   const style4 = {top: '30px', marginLeft: '30px', background: 'rgb(76, 196, 298)'};
 
-  // const [show, setShowEvent] = useState('none');
-  // const handleClick = () => {
+
+  const [showDeleteButton, setShowDelete] = useState(false);
+
+  const func = (event) => {
+    event.preventDefault();
+    console.log('event')
+    if (event.button == 2) {
+      console.log('event true')
+      setShowDelete(true)
+    }
+    return;
     
-  // }
-
-
+  }
+ 
   return (
     
     <div
-      // onclick = {handleClick} 
+            
+      onContextMenu={func} 
       className='event' 
         style={minutes <= '15' 
         ? style1 : minutes < '30' 
@@ -29,12 +38,13 @@ const Event = ({timeStart, timeFinish, title, onDelete}) => {
     >
       <div className='title'>{title}</div>
       {`${timeStart} - ${timeFinish}`}
+      {showDeleteButton ? 
       <button
        className='button-event-delete'
-       onClick={() => onDelete('id')}>
-        {/* <span className='delete-btn'>+</span>  */}
-      </button>
-
+       onClick={() => onDelete(id)}>
+        <span className='delete-btn-content'>+</span> 
+      </button> : null
+      }
     </div>
    
      

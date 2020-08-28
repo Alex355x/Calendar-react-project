@@ -12,11 +12,14 @@
   color: #fff;
   top: 10px;
   font-size: 10px;
-  &:hover {
-    z-index: 1;
-  }
-  // &:active {
-  //   z-index: 1; 
+  
+  
+  // &:hover {
+  //   z-index: 1;
+  //   .button-event-delete {
+  //     visibility: visible;
+   
+  //   }
   // }
 }
 
@@ -25,39 +28,24 @@
   font-style: italic;
 }
 
-//transition: 0.3s all
+.delete-btn-content {
+  width: 10px;
+  height: 10px;
+}
 
 .button-event-delete {
-  //outline: none !important;
-  // display: none;
-	height: 0px;
-	top: -10px;
-  right: -5px;
+  // visibility: hidden;
+  height: 25px;
+  width: 35px;
+  top: -33px;
+  right: -45px;
   transform: rotate(45deg);
-	width: 0px;
-	//box-shadow: 0 0 9px rgba(0, 0, 0, 0.5);
-	color: grey;
-	//background-color: #dfddda;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	//display: block;
-  position: absolute;
-  padding: 1px;
-  // &:hover {
-  //   //min-height: 60px;
-  //   width: 10px;
-  //   width: 10px;
-  // }
-  &::before {
-    content: "+";
+  background-color: grey;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  padding: 3px;
+  font-size: 16px;
+  color: #fff;
 }
-}
-
-.button-event-delete:active {
-	border: 1px solid grey;
-}
-
-// .delete-btn {
-
-// }

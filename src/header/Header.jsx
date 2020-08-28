@@ -111,11 +111,11 @@ const Header = () => {
   console.log(tasks)
  
   const handleEventDelete = (id) => {
-    deleteTask(id).then(() => this.fetchTasks())
+    console.log('111 '+id)
+    deleteTask(id).then(() => fetchTasks())
   }
   
   
-
   return (
     <>
     <header className='header'>
