@@ -1,43 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./header.scss";
 import DateSection from "../date-section/DateSection";
 import moment from "moment";
 import PopupWindow from '../popup-window/PopupWindow';
+import { fetchTasksList, createTaskList, deleteTask } from './Gateway';
 
-const tasks = [
-  {
-    date: "2020-08-24",
-    description: "",
-    timeFinish: "00:45",
-    timeStart: "00:12",
-    title: "Todo1",
-  },
-  {
-    date: "2020-08-24",
-    description: "",
-    timeFinish: "00:55",
-    timeStart: "00:52",
-    title: "jjj",
-  }
-];
+// const tasks = [
+//   {
+//     id: 1,
+//     date: "2020-08-24",
+//     description: "",
+//     timeFinish: "00:45",
+//     timeStart: "00:12",
+//     title: "Todo1",
+//   },
+//   {
+//     date: "2020-08-24",
+//     description: "",
+//     timeFinish: "00:55",
+//     timeStart: "00:52",
+//     title: "jjj",
+//   },
+//   {
+//     date: "2020-08-25",
+//     description: "",
+//     timeFinish: "01:45",
+//     timeStart: "01:52",
+//     title: "jjj",
+//   }
+// ];
 
-
-
-  // id: '2',
-  // title: 'hello2',
-  // description: '112',
-  // timeStart: '10-00',
-  // timeFinish: '13-00',
-  // date: '2020-08-25',
-  // id2: '2020-08-25-Tue-0:00'
-
-// date: "2020-08-26"
-// description: ""
-// timeFinish: "03:00"
-// timeStart: "02:00"
-// title: "пока"
-
-console.log(tasks);
 
 
 const Header = () => {
@@ -47,7 +39,8 @@ const Header = () => {
     
   const [weekStart, setWeekStart] = useState(currentDate);
   const [days, setWeekDays] = useState([]);
-    
+  const [tasks, setTasks] = useState([]);
+
   const nameMonthfirstDayofWeek = moment(weekStart).format('MMM');
   const nameMonthLastDayofWeek = moment(weekStart).endOf('isoWeek').format('MMM')
    
@@ -99,13 +92,28 @@ const Header = () => {
         timeFinish: value.timeFinish,
         date: value.date,
     }
-    tasks.push(newTask);
-    console.log(tasks);
-    // createTask(newTask)
-    //     .then(() => this.fetchTasks());
+    createTaskList(newTask)
+        .then(() => fetchTasks());
 
     hideForm();
   }
+  
+  useEffect(() => {
+    fetchTasks();
+  }, [tasks.id]);
+
+  const fetchTasks = () => {
+    fetchTasksList()
+    .then(tasks => {
+      setTasks(tasks)
+    });
+  }  
+  console.log(tasks)
+ 
+  const handleEventDelete = (id) => {
+    deleteTask(id).then(() => this.fetchTasks())
+  }
+  
   
 
   return (
@@ -162,7 +170,12 @@ const Header = () => {
         </div>
       </div>
     </header>
-    <DateSection result={result} week={days} tasks={tasks}/>
+    <DateSection 
+      result={result} 
+      week={days} 
+      tasks={tasks}
+      onDelete = {handleEventDelete}
+    />
     <PopupWindow show={show} createTask={createTask}/>
     </>
   )

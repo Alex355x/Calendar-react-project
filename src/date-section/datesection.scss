@@ -42,6 +42,8 @@
 }
 
 .time-container {
+    display: flex;
+    position: relative;
     border-bottom: 1px solid #dadce0;
     border-left: 1px solid #dadce0;
     //display: grid;
