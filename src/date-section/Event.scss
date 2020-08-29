@@ -1,7 +1,6 @@
 .event {
   display: flex;
   position: absolute;
-  //position: relative;
   flex-direction: column;
   width: 100px;
   height: 50px;
@@ -12,15 +11,34 @@
   color: #fff;
   top: 10px;
   font-size: 10px;
-  
-  
-  // &:hover {
-  //   z-index: 1;
-  //   .button-event-delete {
-  //     visibility: visible;
-   
-  //   }
-  // }
+  padding: 0px;
+  &:hover {
+    z-index: 1;
+    .button-event-delete {
+      visibility: visible;
+    }
+  }
+}
+
+.button-event-delete {
+  display: flex;
+  z-index: 2;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  width: 70px;
+  top: 45px;
+  right: -65px;
+  box-shadow: 4px 4px 6px -1px rgba(0, 0, 0, 0.2), -4px 4px 6px -1px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  padding: 3px;
+  font-size: 8px;
+  color: #70757a;
+  padding: 10px;
 }
 
 .title {
@@ -28,24 +46,3 @@
   font-style: italic;
 }
 
-.delete-btn-content {
-  width: 10px;
-  height: 10px;
-}
-
-.button-event-delete {
-  // visibility: hidden;
-  height: 25px;
-  width: 35px;
-  top: -33px;
-  right: -45px;
-  transform: rotate(45deg);
-  background-color: grey;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  position: relative;
-  padding: 3px;
-  font-size: 16px;
-  color: #fff;
-}

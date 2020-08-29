@@ -21,7 +21,7 @@ handleChange(event) {
  
   
 render() {
-  const { show, onClose, createTask } = this.props;
+  const { show, createTask, hideForm } = this.props;
   if (!show) { return null };
 
   return (
@@ -31,7 +31,7 @@ render() {
       className="popup-form" >
         <div className="name-events">
           <button 
-          onClick={onClose}
+          onClick={hideForm}
           className="name-events_btn" >
             <i className="fas fa-times"></i>
           </button>

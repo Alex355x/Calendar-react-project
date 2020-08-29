@@ -7,9 +7,7 @@
     
     border-bottom: 1px solid #dadce0;
     // overflow-y: scroll;
-    
 }
-
 
 .day {
     display: flex;
@@ -53,14 +51,8 @@
     position: relative;
     border-bottom: 1px solid #dadce0;
     border-left: 1px solid #dadce0;
-    //display: grid;
-    //grid-template-rows: 5rem;
-    //grid-auto-rows: 5rem;
-    //grid-template-columns: 5.8rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    
     &-1 {
         display: flex;
-        
     }
 }
 
@@ -108,8 +100,29 @@
     background: transparent;
     height: 8px;
     width: 10px;
-    //border: 2px solid black
 }
+
+.redBall {
+    width: 12px;
+    height: 12px;
+    background-color: #ea4335;
+    border-radius: 50%;
+    position: relative;
+    left: -6px;
+    top: 0;
+}
+
+.redLine {
+    border: 2px solid #ea4335;
+    background-color: #ea4335;
+    height: 3px;
+    width: 100%;
+    margin-top: 3px;
+    position: absolute;
+    top: 0;
+}
+
+
 
 
 

@@ -108,14 +108,11 @@ const Header = () => {
       setTasks(tasks)
     });
   }  
-  console.log(tasks)
- 
+   
   const handleEventDelete = (id) => {
-    console.log('111 '+id)
     deleteTask(id).then(() => fetchTasks())
   }
-  
-  
+    
   return (
     <>
     <header className='header'>
@@ -176,7 +173,8 @@ const Header = () => {
       tasks={tasks}
       onDelete = {handleEventDelete}
     />
-    <PopupWindow show={show} createTask={createTask}/>
+  
+    <PopupWindow show={show} createTask={createTask} hideForm={hideForm}/>
     </>
   )
 }
