@@ -5,7 +5,6 @@ import moment from 'moment';
 const RedLine = () => {
 
   const [minutesNow, setMinutesNow] = useState(moment(new Date()).format('m'));
-
   const style = {top: `${minutesNow}px`};
   
   useEffect(() => {
