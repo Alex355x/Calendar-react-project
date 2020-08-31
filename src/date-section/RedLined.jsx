@@ -10,7 +10,7 @@ const RedLined = () => {
   useEffect(() => {
     setInterval(() => setMinutesNow(moment(new Date()).format('m')), 60000);
   });
-
+  
   return (
     <>
     <div className='redBall' style={style}></div>

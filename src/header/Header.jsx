@@ -8,14 +8,22 @@ import { fetchTasksList, createTaskList, deleteTask } from './Gateway';
 const Header = () => {
 
   const dateNow = new Date();
-  const currentDate = moment(dateNow).startOf('isoWeek').week('isoWeek');
-    
+  
+  const [currentDate, setCurrentDate] = useState(moment(dateNow).startOf('isoWeek').week('isoWeek'));  
   const [weekStart, setWeekStart] = useState(currentDate);
   const [days, setWeekDays] = useState([]);
   const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    setInterval(() => setCurrentDate(moment(moment(dateNow).startOf('isoWeek').week('isoWeek'))), 86400000);
+  });
+
   const nameMonthfirstDayofWeek = moment(weekStart).format('MMM');
   const nameMonthLastDayofWeek = moment(weekStart).endOf('isoWeek').format('MMM')
+
+  const today = moment(dateNow).format("YYYY-MM-DD-ddd");
+  const style = {color: "white", background: '#1a73e8'};
+  const style2 = {color: '#1a73e8'};
    
   for (let i = 0; i <= 6; i++) {
     if (!days.includes(moment(weekStart).add(i, 'days').format("YYYY-MM-DD-ddd"))) {
@@ -25,8 +33,11 @@ const Header = () => {
   
   let result = days.map(day => 
     <div key={day} className='day'>
-      <span className='day-of-week'>{day.split('-')[3].toUpperCase()}</span>
-      <span className='day-number'>{day.split('-')[2]}</span>
+      <span className='day-of-week' style={today === day? style2 : null}
+      >
+      {day.split('-')[3].toUpperCase()}</span>
+      <span className='day-number' style={today === day? style: null}
+      >{day.split('-')[2]}</span>
       <div className="day-border"></div>
     </div>
   );
