@@ -1,7 +1,8 @@
 import React from 'react';
 import Event from './Event';
-import moment from 'moment';
 import RedLine from './RedLine';
+import moment from 'moment';
+
 
 
 const timeNow = moment(new Date()).format('YYYY-MM-DD-ddd-HH');
