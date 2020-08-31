@@ -5,33 +5,6 @@ import moment from "moment";
 import PopupWindow from '../popup-window/PopupWindow';
 import { fetchTasksList, createTaskList, deleteTask } from './Gateway';
 
-// const tasks = [
-//   {
-//     id: 1,
-//     date: "2020-08-24",
-//     description: "",
-//     timeFinish: "00:45",
-//     timeStart: "00:12",
-//     title: "Todo1",
-//   },
-//   {
-//     date: "2020-08-24",
-//     description: "",
-//     timeFinish: "00:55",
-//     timeStart: "00:52",
-//     title: "jjj",
-//   },
-//   {
-//     date: "2020-08-25",
-//     description: "",
-//     timeFinish: "01:45",
-//     timeStart: "01:52",
-//     title: "jjj",
-//   }
-// ];
-
-
-
 const Header = () => {
 
   const dateNow = new Date();
