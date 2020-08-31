@@ -3,8 +3,6 @@ import Event from './Event';
 import RedLine from './RedLine';
 import moment from 'moment';
 
-
-
 const timeNow = moment(new Date()).format('YYYY-MM-DD-ddd-HH');
 
 const TimeTable = ({week, tasks, onDelete}) => {
@@ -12,8 +10,7 @@ const TimeTable = ({week, tasks, onDelete}) => {
   for (let i = 0; i <24; i++) {
     hours.push(i < 10?`0${i}:00`:`${i}:00`);
   }
-  
-    
+      
   const renderTasks = (week, hours) => { 
     return hours.map((el) => {
     const daysOfWeek = week.map(dayOfWeek => {
@@ -37,7 +34,7 @@ const TimeTable = ({week, tasks, onDelete}) => {
         </>
     )
     }
-)}
+  )}
  
   const result = renderTasks(week, hours);
   return (
