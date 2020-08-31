@@ -1,6 +1,6 @@
 import React from 'react';
 import Event from './Event';
-import RedLine from './RedLine';
+import RedLined from './RedLined';
 import moment from 'moment';
 
 const timeNow = moment(new Date()).format('YYYY-MM-DD-ddd-HH');
@@ -21,7 +21,7 @@ const TimeTable = ({week, tasks, onDelete}) => {
           <div className='time-container' value={`${dayOfWeek}-${el}`}>
               {filtredTasks && filtredTasks.map(task => <Event title={task.title} timeStart={task.timeStart} timeFinish={task.timeFinish} onDelete={onDelete} id={task.id}/>)}
               
-              {dayContainerNow === timeNow && <RedLine />}
+              {dayContainerNow === timeNow && <RedLined />}
           </div>)
       })
     return (   

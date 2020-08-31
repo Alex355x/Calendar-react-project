@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './datesection.scss';
 import moment from 'moment';
 
-const RedLine = () => {
+const RedLined = () => {
 
   const [minutesNow, setMinutesNow] = useState(moment(new Date()).format('m'));
   const style = {top: `${minutesNow}px`};
@@ -19,4 +19,4 @@ const RedLine = () => {
   )
 }
 
-export default RedLine;
+export default RedLined;
