@@ -1,6 +1,7 @@
 import React from 'react';
 import './datesection.scss';
 import TimeTable from './TimeTable';
+import PropTypes from 'prop-types';
 
 const DateSection = ({result, week, tasks, onDelete }) => {
   
@@ -12,9 +13,17 @@ const DateSection = ({result, week, tasks, onDelete }) => {
         </div>
         {result}
       </section>
-      <TimeTable week={week} tasks={tasks} onDelete={onDelete}/>
+      <TimeTable  week={week} tasks={tasks} onDelete={onDelete}/>
     </>
   )
 }
 
+DateSection.propTypes = {
+  result: PropTypes.array.isRequired,
+  week: PropTypes.array.isRequired,
+  tasks: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired,
+}
+
 export default DateSection;
+

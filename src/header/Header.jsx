@@ -9,15 +9,12 @@ const Header = () => {
 
   const dateNow = new Date();
   
-  const [currentDate, setCurrentDate] = useState(moment(dateNow).startOf('isoWeek').week('isoWeek'));  
+  const currentDate = moment(dateNow).startOf('isoWeek').week('isoWeek');  
   const [weekStart, setWeekStart] = useState(currentDate);
   const [days, setWeekDays] = useState([]);
   const [tasks, setTasks] = useState([]);
 
-  useEffect(() => {
-    setInterval(() => setCurrentDate(moment(moment(dateNow).startOf('isoWeek').week('isoWeek'))), 86400000);
-  });
-
+ 
   const nameMonthfirstDayofWeek = moment(weekStart).format('MMM');
   const nameMonthLastDayofWeek = moment(weekStart).endOf('isoWeek').format('MMM')
 
@@ -84,7 +81,7 @@ const Header = () => {
   
   useEffect(() => {
     fetchTasks();
-  }, [tasks.id]);
+  }, [tasks.length]);
 
   const fetchTasks = () => {
     fetchTasksList()
