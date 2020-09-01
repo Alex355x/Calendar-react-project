@@ -5,6 +5,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import TimeColumn from './TimeColumn';
 
+
 const timeNow = moment(new Date()).format('YYYY-MM-DD-ddd-HH');
 
 const TimeTable = ({week, tasks, onDelete}) => {
@@ -31,16 +32,16 @@ const TimeTable = ({week, tasks, onDelete}) => {
           let dayContainerNow = (`${dayOfWeek}-${el}`).slice(0, -3);
           return (
           <div key={dayOfWeek.toString()} className='time-container' value={`${dayOfWeek}-${el}`}>
-              {filtredTasks && filtredTasks.map(task => <Event title={task.title} timeStart={task.timeStart} timeFinish={task.timeFinish} onDelete={onDelete} id={task.id}/>)}
+              {filtredTasks && filtredTasks.map(task => <Event key={task.id} title={task.title} timeStart={task.timeStart} timeFinish={task.timeFinish} onDelete={onDelete} id={task.id}/>)}
               
               {dayContainerNow === timeNow && <RedLined funcRender={funcRender}/>}
           </div>)
       })
     return (   
-        <>
-        {<TimeColumn el={el} week={week}/>}
-        {daysOfWeek}
-        </>
+        <React.Fragment key={el}>
+          {<TimeColumn el={el} week={week}/>}
+          {daysOfWeek}
+        </React.Fragment>
     )
     }
   )}

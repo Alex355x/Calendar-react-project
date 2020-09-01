@@ -22,7 +22,7 @@ const Event = ({timeStart, timeFinish, title, onDelete, id}) => {
 
   return (
     <>
-    <div key={Math.random()}
+    <div
       onContextMenu={func} 
       className='event' 
         style={minutes <= '15' 
