@@ -37,7 +37,7 @@ const Event = ({timeStart, timeFinish, title, onDelete, id}) => {
       <button
        className='button-event-delete'
        onClick={() => onDelete(id)}>
-       <i class="fas fa-trash-alt"></i>
+       <i className="fas fa-trash-alt"></i>
         <div className='delete-btn-content'>
           Delete
         </div> 
