@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Event from './Event';
 import RedLined from './RedLined';
 import moment from 'moment';
