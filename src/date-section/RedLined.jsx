@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './datesection.scss';
 import moment from 'moment';
-import PropTypes from 'prop-types';
 
-const RedLined = ({funcRender}) => {
+
+const RedLined = () => {
   
   const [minutesNow, setMinutesNow] = useState(moment(new Date()).format('m'));
   const style = {top: `${minutesNow * 1.2}px`};
   
   useEffect(() => {
-    setInterval(() => setMinutesNow(moment(new Date()).format('m')), 60000);
-    setInterval(()=> funcRender(), 3600000);
-    clearInterval();
+    const interval = setInterval(() => setMinutesNow((minutesNow)=> minutesNow + 1), 60000);
+    
+    clearInterval(interval);
   });
+
+  console.log('render')
    
   return (
     <>
@@ -22,8 +24,5 @@ const RedLined = ({funcRender}) => {
   )
 }
 
-RedLined.propTypes = {
-  funcRender: PropTypes.func.isRequired,
-}
 
 export default RedLined;

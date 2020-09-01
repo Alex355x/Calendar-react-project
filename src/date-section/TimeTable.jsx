@@ -6,19 +6,11 @@ import PropTypes from 'prop-types';
 import TimeColumn from './TimeColumn';
 
 
-const timeNow = moment(new Date()).format('YYYY-MM-DD-ddd-HH');
 
 const TimeTable = ({week, tasks, onDelete}) => {
   
-  const funcRender = () => {
-    renderTasks(week, hours);
-  }
-    
-  useEffect(() => {
-    setInterval(()=> renderTasks(week, hours), 3600000);
-    clearInterval();
-  });
-
+  const timeNow = moment(new Date()).format('YYYY-MM-DD-ddd-HH');
+      
   let hours = [];
   for (let i = 0; i <24; i++) {
     hours.push(i < 10?`0${i}:00`:`${i}:00`);
@@ -34,7 +26,7 @@ const TimeTable = ({week, tasks, onDelete}) => {
           <div key={dayOfWeek.toString()} className='time-container' value={`${dayOfWeek}-${el}`}>
               {filtredTasks && filtredTasks.map(task => <Event key={task.id} title={task.title} timeStart={task.timeStart} timeFinish={task.timeFinish} onDelete={onDelete} id={task.id}/>)}
               
-              {dayContainerNow === timeNow && <RedLined funcRender={funcRender}/>}
+              {dayContainerNow === timeNow && <RedLined />}
           </div>)
       })
     return (   

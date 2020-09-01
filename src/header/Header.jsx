@@ -8,8 +8,8 @@ import { fetchTasksList, createTaskList, deleteTask } from './Gateway';
 const Header = () => {
 
   const dateNow = new Date();
+  const currentDate = moment(dateNow).startOf('isoWeek').week('isoWeek'); 
   
-  const currentDate = moment(dateNow).startOf('isoWeek').week('isoWeek');  
   const [weekStart, setWeekStart] = useState(currentDate);
   const [days, setWeekDays] = useState([]);
   const [tasks, setTasks] = useState([]);
