@@ -2,6 +2,7 @@ import React from 'react';
 import './datesection.scss';
 import TimeTable from './TimeTable';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const DateSection = ({result, week, tasks, onDelete }) => {
   
@@ -9,7 +10,7 @@ const DateSection = ({result, week, tasks, onDelete }) => {
     <>
       <section  className='date-container scroll'>
         <div className='day timezone'>
-        GMT+03
+        {moment().format("Z")}
         </div>
         {result}
       </section>

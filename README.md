@@ -66,3 +66,22 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+The tech stack is:
+- HTML
+- CSS
+- SASS
+- BEM
+- REACT
+- REST API
+- ESLint
+- npm
+- prop-tupes
+- moment
+- FontAwesome
+- VSCode
+
+Link on page:
+https://cranky-jepsen-c6dfee.netlify.app/
+
+Author Alexei Pylypchuk
