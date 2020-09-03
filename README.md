@@ -1,3 +1,45 @@
+Quick start
+
+In the project directory, you can run:
+
+npm i
+
+npm start
+
+Runs the app in the development mode.
+Open http://localhost:3000 to view in the browser.
+
+The page will reload if you make edits.
+
+The tech stack is:
+
+- HTML5
+- CSS3
+- Flexbox
+- Sass(scss)
+- BEM methodology
+- JS ES6
+- React JS
+- React-router-dom
+- REST API
+- ESLint
+- npm
+- prop-types
+- moment.js
+
+
+
+Link on page:
+https://cranky-jepsen-c6dfee.netlify.app/
+
+Author Alexei Pylypchuk
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -67,21 +109,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-The tech stack is:
-- HTML
-- CSS
-- SASS
-- BEM
-- REACT
-- REST API
-- ESLint
-- npm
-- prop-tupes
-- moment
-- FontAwesome
-- VSCode
-
-Link on page:
-https://cranky-jepsen-c6dfee.netlify.app/
-
-Author Alexei Pylypchuk
